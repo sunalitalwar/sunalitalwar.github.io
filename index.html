@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunali Talwar | Fashion & Lifestyle</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* --- 1. DESIGN SYSTEM & VARIABLES --- */
+        :root {
+            /* Palette: Dusty Rose, Charcoal, Cream, Gold */
+            --bg-body: #FFFAF0;       /* Floral White / Cream */
+            --text-main: #2C2C2C;     /* Soft Black */
+            --text-light: #666666;
+            --primary: #C08081;       /* Dusty Rose/Mauve */
+            --primary-light: #EACDC2; 
+            --white: #ffffff;
+            
+            /* Spacing */
+            --section-padding: 100px 8%;
+        }
+
+        /* RESET & SMOOTH SCROLL */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { 
+            scroll-behavior: smooth; 
+            scroll-padding-top: 80px; 
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.8;
+            overflow-x: hidden; 
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 700; }
+        a { text-decoration: none; color: inherit; transition: all 0.4s ease; }
+        img { width: 100%; display: block; }
+
+        /* --- 2. NAVIGATION --- */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 5%;
+            position: fixed; top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95); 
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .logo { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            letter-spacing: 2px; 
+            text-transform: uppercase;
+        }
+        
+        .nav-center { display: flex; gap: 40px; }
+        .nav-link {
+            font-size: 0.85rem; font-weight: 500; text-transform: uppercase; 
+            letter-spacing: 2px; position: relative; color: var(--text-main);
+        }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 1px;
+            bottom: -5px; left: 0; background-color: var(--primary);
+            transition: width 0.3s;
+        }
+        .nav-link:hover { color: var(--primary); }
+        .nav-link:hover::after { width: 100%; }
+
+        .btn-contact-nav {
+            border: 1px solid var(--text-main); padding: 10px 25px;
+            font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 500;
+        }
+        .btn-contact-nav:hover { background: var(--text-main); color: var(--white); }
+
+        /* --- 3. HERO SECTION & SOCIAL HUB --- */
+        .hero {
+            min-height: 100vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            /* REPLACE THIS URL WITH HER HERO IMAGE */
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            color: var(--white);
+            padding: 100px 20px 40px;
+        }
+        .hero-subtitle {
+            font-size: 1rem; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 20px;
+            animation: fadeInDown 1s ease-out;
+        }
+        .hero h1 {
+            font-size: 4rem; margin-bottom: 20px; line-height: 1.1;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+        
+        /* Social Hub (Linktree Replacement) */
+        .social-hub {
+            display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; justify-content: center;
+            animation: fadeInUp 1s ease-out 0.6s backwards;
+        }
+        .social-pill {
+            background: rgba(255,255,255,0.2); backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.4); color: white;
+            padding: 12px 25px; border-radius: 50px;
+            display: flex; align-items: center; gap: 10px;
+            font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .social-pill:hover { background: var(--white); color: var(--text-main); transform: translateY(-3px); }
+
+        /* --- 4. BRAND TICKER --- */
+        .brands-ticker {
+            background: var(--white); padding: 40px 0; border-bottom: 1px solid #eee; overflow: hidden;
+        }
+        .ticker-track {
+            display: flex; gap: 80px; animation: scroll 40s linear infinite; width: max-content;
+        }
+        .brand-item {
+            font-size: 1.5rem; font-family: 'Playfair Display', serif; color: #aaa; font-style: italic; white-space: nowrap;
+        }
+
+        /* --- 5. VISUAL DIARY (VIDEO CSS) --- */
+        .portfolio { padding: var(--section-padding); background: var(--white); }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        .gallery-item {
+            position: relative; overflow: hidden; height: 550px; /* Tall for Reels */
+            border-radius: 8px; background: #000; cursor: pointer;
+            cursor: pointer;
+        }
+        .gallery-item video {
+            width: 100%; height: 100%; object-fit: cover; opacity: 0.9; transition: transform 0.6s ease;
+        }
+        .gallery-overlay {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            display: flex; flex-direction: column; justify-content: flex-end; align-items: center;
+            padding-bottom: 40px; opacity: 0; transition: 0.4s;
+        }
+        
+        /* Stats on Hover */
+        .reel-stats {
+            display: flex; gap: 25px; color: white; margin-top: 15px;
+            transform: translateY(20px); transition: 0.4s ease;
+        }
+        .stat-box { 
+            display: flex; flex-direction: column; align-items: center; gap: 5px; 
+            font-size: 0.9rem; font-weight: 600; font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* Sound Toggle Btn */
+        .sound-btn {
+            position: absolute; top: 15px; right: 15px;
+            width: 35px; height: 35px; border-radius: 50%;
+            background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.5);
+            color: white; display: flex; justify-content: center; align-items: center;
+            cursor: pointer; z-index: 10; transition: 0.3s;
+        }
+        .sound-btn:hover { background: white; color: black; }
+
+        /* Interactions */
+        .gallery-item:hover video { transform: scale(1.05); opacity: 0.7; }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .gallery-item:hover .reel-stats { transform: translateY(0); }
+
+        /* --- 6. SERVICES --- */
+        .section-header { text-align: center; margin-bottom: 70px; }
+        .section-header h2 { font-size: 3rem; margin-bottom: 15px; }
+        .section-header p { max-width: 600px; margin: 0 auto; color: var(--text-light); }
+
+        .services { padding: var(--section-padding); background: var(--bg-body); }
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .service-card {
+            background: var(--white); padding: 50px 30px; text-align: center; border: 1px solid transparent;
+            transition: 0.4s; position: relative; overflow: hidden;
+        }
+        .service-card:hover { border-color: var(--primary-light); transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
+        .service-icon {
+            width: 70px; height: 70px; background: var(--bg-body); border-radius: 50%;
+            display: flex; justify-content: center; align-items: center; margin: 0 auto 30px;
+            color: var(--primary); font-size: 1.5rem;
+        }
+        .service-card h3 { margin-bottom: 15px; font-size: 1.5rem; }
+        .price { 
+            display: inline-block; padding: 5px 15px; background: var(--bg-body); 
+            font-family: 'Playfair Display'; font-style: italic; color: var(--text-main); font-weight: 700; margin-top:20px;
+        }
+        /* --- UPDATED PRICE BUTTON STYLING --- */
+        .price-btn { 
+            display: inline-block; 
+            padding: 10px 25px; 
+            border: 1px solid var(--text-main); 
+            color: var(--text-main);
+            font-family: 'Playfair Display', serif; 
+            font-size: 0.9rem;
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+            font-weight: 500; 
+            margin-top: 20px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .price-btn:hover { 
+            background: var(--text-main); 
+            color: var(--white); 
+            transform: translateY(-2px);
+        }
+
+        /* --- 7. NEW SOCIALS SECTION --- */
+        .socials-section { padding: 80px 5%; background: var(--white); text-align: center; }
+        .social-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 40px; }
+        .social-card {
+            width: 220px; padding: 30px 20px; border: 1px solid #eee; transition: 0.3s;
+            display: flex; flex-direction: column; align-items: center; gap: 15px;
+            color: var(--text-main);
+        }
+        .social-card i { font-size: 2rem; color: var(--primary); transition: 0.3s; }
+        .social-card:hover { transform: translateY(-5px); border-color: var(--primary); background: var(--bg-body); }
+        .social-card:hover i { transform: scale(1.2); }
+
+        /* --- 8. CONTACT FORM --- */
+        .contact { padding: var(--section-padding); background: #f4f4f4; text-align: center; }
+        .contact-container { max-width: 700px; margin: 0 auto; background: var(--white); padding: 60px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 25px; text-align: left; }
+        .form-control {
+            width: 100%; border: none; border-bottom: 1px solid #ddd; padding: 10px 0;
+            font-family: 'Playfair Display'; font-size: 1.1rem; background: transparent; transition: 0.3s;
+        }
+        .form-control:focus { outline: none; border-bottom-color: var(--primary); }
+        .submit-btn {
+            width: 100%; padding: 20px; background: var(--text-main); color: var(--white);
+            border: none; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; margin-top: 20px; transition: 0.3s;
+        }
+        .submit-btn:hover { background: var(--primary); }
+
+        .direct-email {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* --- DIRECT EMAIL STYLING --- */
+        .direct-email p {
+            font-size: 0.9rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .email-link {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--primary); /* Elegant underline */
+            padding-bottom: 2px;
+            transition: 0.3s;
+        }
+
+        .email-link:hover {
+            color: var(--primary);
+            border-bottom-color: transparent;
+        }
+
+        /* --- DEMOGRAPHICS SECTION --- */
+        .demographics-section { padding: var(--section-padding); background: var(--white); }
+        .demo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; margin-top: 40px; }
+
+        .demo-card {
+            background: var(--bg-body); padding: 30px; border-radius: 8px;
+            border: 1px solid #eee;
+        }
+        .demo-card h3 { font-size: 1.2rem; margin-bottom: 20px; border-bottom: 1px solid var(--primary); padding-bottom: 10px; display: inline-block; }
+
+        /* Bar Charts for Age */
+        .bar-container { margin-bottom: 15px; }
+        .bar-label { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 5px; font-weight: 500; }
+        .bar-track { width: 100%; height: 8px; background: #e0e0e0; border-radius: 4px; overflow: hidden; }
+        .bar-fill { height: 100%; background: var(--primary); border-radius: 4px; }
+
+        /* Cities List */
+        .city-list li { 
+            display: flex; justify-content: space-between; 
+            padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.05);
+            font-size: 0.95rem;
+        }
+        .gender-circle {
+            width: 150px; height: 150px; border-radius: 50%; 
+            background: conic-gradient(var(--primary) 0% 75%, #ccc 75% 100%);
+            margin: 0 auto; position: relative;
+        }
+        .gender-legend { text-align: center; margin-top: 20px; font-size: 0.9rem; }
+
+        /* --- UTILS --- */
+        footer { background: #1a1a1a; color: #fff; padding: 60px 5%; text-align: center; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .mobile-menu-btn { display: none; font-size: 1.5rem; cursor: pointer; }
+        
+        @media (max-width: 768px) {
+            .nav-center { display: none; }
+            .mobile-menu-btn { display: block; }
+            .hero h1 { font-size: 2.5rem; }
+            .service-grid, .gallery-grid { grid-template-columns: 1fr; }
+            .contact-container { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Sunali Talwar</div>
+        <div class="nav-center">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#portfolio" class="nav-link">Work</a>
+            <a href="#rates" class="nav-link">Services</a>
+            <a href="#connect" class="nav-link">Connect</a>
+        </div>
+        <a href="#contact" class="btn-contact-nav">Contact</a>
+        <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-subtitle">Est. 2021 • Ghaziabad, India</div>
+        <h1>Curating Life <br> in Style</h1>
+        
+        <div class="social-hub">
+            <a href="https://www.instagram.com/sunalitalwar" target="_blank" class="social-pill">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="https://www.youtube.com/@sunalitalwar8435" target="_blank" class="social-pill">
+                <i class="fab fa-youtube"></i> YouTube
+            </a>
+            <a href="https://www.threads.net/@sunalitalwar" target="_blank" class="social-pill">
+                <i class="fa-brands fa-threads"></i> Threads
+            </a>
+            <a href="#portfolio" class="social-pill" style="background:var(--white); color:var(--text-main);">
+                <i class="fas fa-play"></i> View Reels
+            </a>
+        </div>
+    </section>
+
+    <div class="brands-ticker">
+        <div class="ticker-track">
+        <span class="brand-item">L'ORÉAL PARIS</span>
+        <span class="brand-item">FLIPKART</span>
+        <span class="brand-item">AGARO</span> 
+        <span class="brand-item">MAMAEARTH</span>
+        <span class="brand-item">MAYBELLINE</span>
+        <span class="brand-item">LAKMÉ</span>
+        <span class="brand-item">ZEISS</span>
+        <span class="brand-item">LANCÔME</span>
+        <span class="brand-item">BIODERMA</span>
+        <span class="brand-item">POND'S</span>
+        <span class="brand-item">TRESemmé</span>
+        <span class="brand-item">MATRIX</span>
+        <span class="brand-item">LANEIGE</span>
+        <span class="brand-item">PLUM</span>
+        <span class="brand-item">DOT & KEY</span>
+        <span class="brand-item">SWISS BEAUTY</span>
+        <span class="brand-item">BEAUTY OF JOSEON</span>
+        <span class="brand-item">SHEIN</span>
+        <span class="brand-item">SURATIKART</span>
+        <span class="brand-item">DR. RASHEL</span>
+        <span class="brand-item">HILARY RHODA</span>
+        <span class="brand-item">REXONA</span>
+        <span class="brand-item">ABIB</span>
+        <span class="brand-item">SECRET KEY</span>
+        <span class="brand-item">PIXEL PURE</span>
+        <span class="brand-item">INDULEKHA</span>
+        <span class="brand-item">PEARS</span>
+        <span class="brand-item">NY BAE</span>
+        <span class="brand-item">SUNSILK</span>
+        <span class="brand-item">CELL FUSION C</span>
+        <span class="brand-item">HARUHARU WONDER</span>
+        <span class="brand-item">STAZE</span>
+        <span class="brand-item">VEGREEN</span>
+        <span class="brand-item">SKYBOTTLE</span>
+
+        <span class="brand-item">L'ORÉAL PARIS</span>
+        <span class="brand-item">FLIPKART</span>
+        <span class="brand-item">AGARO</span>
+        <span class="brand-item">MAMAEARTH</span>
+        <span class="brand-item">MAYBELLINE</span>
+        <span class="brand-item">LAKMÉ</span>
+        <span class="brand-item">ZEISS</span>
+        <span class="brand-item">LANCÔME</span>
+        <span class="brand-item">BIODERMA</span>
+        <span class="brand-item">POND'S</span>
+        <span class="brand-item">TRESemmé</span>
+        <span class="brand-item">MATRIX</span>
+        <span class="brand-item">LANEIGE</span>
+        <span class="brand-item">PLUM</span>
+        <span class="brand-item">DOT & KEY</span>
+        <span class="brand-item">SWISS BEAUTY</span>
+        <span class="brand-item">BEAUTY OF JOSEON</span>
+        <span class="brand-item">SHEIN</span>
+        <span class="brand-item">SURATIKART</span>
+        <span class="brand-item">DR. RASHEL</span>
+        <span class="brand-item">HILARY RHODA</span>
+        <span class="brand-item">REXONA</span>
+        <span class="brand-item">ABIB</span>
+    </div>
+    </div>
+
+    <section id="about" class="services reveal"> 
+        
+        <style>
+            .stats-grid { 
+                display: grid; 
+                grid-template-columns: 1fr 1fr; 
+                gap: 15px; 
+                margin-top: 30px; 
+                width: 100%;
+            }
+            .stat-item { 
+                background: #fff; 
+                padding: 15px; 
+                border: 1px solid #eee; 
+                text-align: center; 
+                border-radius: 6px;
+                transition: 0.3s;
+            }
+            .stat-item:hover {
+                border-color: var(--primary);
+                transform: translateY(-3px);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            }
+            .stat-num { 
+                font-size: 1.6rem; 
+                color: var(--primary); 
+                font-family: 'Playfair Display', serif; 
+                font-weight: 700; 
+                line-height: 1.2;
+                margin-bottom: 5px;
+            }
+            .stat-label { 
+                font-size: 0.75rem; 
+                text-transform: uppercase; 
+                letter-spacing: 1px; 
+                color: #666; 
+                font-weight: 500;
+            }
+        </style>
+
+        <div class="section-header">
+            <h2>The Creator</h2>
+            <p>"I don't just wear clothes; I tell stories through them."</p>
+        </div>
+
+        <div style="display:flex; flex-wrap:wrap; gap:50px; align-items:center; justify-content:center;">
+            
+            <div style="flex:1; min-width:300px;">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800" style="border-radius:5px; box-shadow: 10px 10px 0px rgba(0,0,0,0.05);" alt="Sunali Profile">
+            </div>
+            
+            <div style="flex:1; min-width:300px;">
+                <h3 style="font-size:2rem; margin-bottom:20px;">Hello, I'm Sunali.</h3>
+                <p style="margin-bottom:20px; color:var(--text-light);">Based in Ghaziabad, I bridge the gap between high-end beauty standards and accessible lifestyle choices. My content focuses on honest reviews, trend forecasting, and aesthetic storytelling that respects the intelligence of my audience.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-num">25K+</div> <div class="stat-label">Followers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num">4.5%</div> <div class="stat-label">Engagement</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num">640K</div> <div class="stat-label">Monthly Reach</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num">60+</div>
+                        <div class="stat-label">Brand Partners</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="rates" class="services reveal">
+        <div class="section-header">
+            <h2>Services & Investment</h2>
+            <p>Tailored content packages designed to meet your campaign goals.</p>
+        </div>
+        
+        <div class="service-grid">
+            
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-video"></i></div>
+                <h3>Reels & Storytelling</h3>
+                <p>High-retention short-form video content aligned with trending audio. Includes concept, filming, and professional editing.</p>
+                <a href="#contact" class="price-btn">Request Rate Card</a>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-camera-retro"></i></div>
+                <h3>Editorial Posts</h3>
+                <p>Static imagery that mimics high-fashion magazine spreads. Includes caption copywriting, tagging, and story amplification.</p>
+                <a href="#contact" class="price-btn">Inquire for Rates</a>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-gem"></i></div>
+                <h3>Brand Ambassadorship</h3>
+                <p>A strategic partnership involving multiple deliverables over 3-6 months. Best for maximum brand recall and trust building.</p>
+                <a href="#contact" class="price-btn">Get Custom Quote</a>
+            </div>
+            
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio reveal">
+        <div class="section-header">
+            <h2>Visual Diary</h2>
+            <p>Top performing viral moments & campaigns.</p>
+        </div>
+        
+        <div class="gallery-grid">
+            
+            <div class="gallery-item" onclick="window.open('https://www.instagram.com/reel/DQzMi8tiR5G/', '_blank')">
+                <video id="vid1" src="videos/reel1.mp4" autoplay muted loop playsinline></video>
+                
+                <button class="sound-btn" onclick="toggleSound(event, 'vid1', this)">
+                    <i class="fas fa-volume-mute"></i>
+                </button>
+
+                <div class="gallery-overlay">
+                    <h3 style="color:white; margin-bottom:5px;">Fashion</h3>
+                    <div class="reel-stats">
+                        <div class="stat-box"><i class="fas fa-play"></i> 337K</div>
+                        <div class="stat-box"><i class="fas fa-heart"></i> 1.3K</div>
+                        <div class="stat-box"><i class="fas fa-share"></i> 2.4K</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item" onclick="window.open('https://www.instagram.com/reel/DSCDDmykbx-/', '_blank')">
+                <video id="vid2" src="videos/reel2.mp4" autoplay muted loop playsinline></video>
+                
+                <button class="sound-btn" onclick="toggleSound(event, 'vid2', this)">
+                    <i class="fas fa-volume-mute"></i>
+                </button>
+
+                <div class="gallery-overlay">
+                    <h3 style="color:white; margin-bottom:5px;">Skincare</h3>
+                    <div class="reel-stats">
+                        <div class="stat-box"><i class="fas fa-play"></i> 89.1K</div>
+                        <div class="stat-box"><i class="fas fa-heart"></i> 1.2k</div>
+                        <div class="stat-box"><i class="fas fa-share"></i> 1K</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item" onclick="window.open('https://www.instagram.com/reel/DQ9dGlTibxB/', '_blank')">
+                <video id="vid3" src="videos/reel3.mp4" autoplay muted loop playsinline></video>
+                
+                <button class="sound-btn" onclick="toggleSound(event, 'vid3', this)">
+                    <i class="fas fa-volume-mute"></i>
+                </button>
+
+                <div class="gallery-overlay">
+                    <h3 style="color:white; margin-bottom:5px;">Health & Wellness</h3>
+                    <div class="reel-stats">
+                        <div class="stat-box"><i class="fas fa-play"></i> 115K</div>
+                        <div class="stat-box"><i class="fas fa-heart"></i> 1.1K</div>
+                        <div class="stat-box"><i class="fas fa-share"></i> 1K</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="connect" class="socials-section reveal">
+        <div class="section-header">
+            <h2>Join the Community</h2>
+            <p>Follow along for daily inspiration.</p>
+        </div>
+        <div class="social-grid">
+            <a href="https://www.instagram.com/sunalitalwar" target="_blank" class="social-card">
+                <i class="fab fa-instagram"></i> <span>Instagram</span>
+            </a>
+            <a href="https://www.youtube.com/@sunalitalwar8435" target="_blank" class="social-card">
+                <i class="fab fa-youtube"></i> <span>YouTube</span>
+            </a>
+            <a href="https://www.facebook.com/sunali.talwar" target="_blank" class="social-card">
+                <i class="fab fa-facebook"></i> <span>Facebook</span>
+            </a>
+            <a href="https://www.threads.net/@sunalitalwar" target="_blank" class="social-card">
+                <i class="fa-brands fa-threads"></i> <span>Threads</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="demographics-section reveal">
+        <div class="section-header">
+            <h2>Audience Insights</h2>
+            <p>A loyal, engaged community primarily based in India.</p>
+        </div>
+
+        <div class="demo-grid">
+            
+            <div class="demo-card">
+                <h3>Age Distribution</h3>
+                
+                <div class="bar-container">
+                    <div class="bar-label"><span>18 - 24 Years</span> <span>34.6%</span></div>
+                    <div class="bar-track"><div class="bar-fill" style="width: 35%;"></div></div>
+                </div>
+                
+                <div class="bar-container">
+                    <div class="bar-label"><span>25 - 34 Years</span> <span>38.2%</span></div>
+                    <div class="bar-track"><div class="bar-fill" style="width: 45%;"></div></div>
+                </div>
+
+                <div class="bar-container">
+                    <div class="bar-label"><span>35 - 44 Years</span> <span>15.1%</span></div>
+                    <div class="bar-track"><div class="bar-fill" style="width: 15%;"></div></div>
+                </div>
+            </div>
+
+            <div class="demo-card">
+                <h3>Top Cities</h3>
+                <ul class="city-list">
+                    <li><span>Delhi NCR</span> <span>7.9%</span></li>
+                    <li><span>Mumbai</span> <span>2.8%</span></li>
+                    <li><span>Bangalore</span> <span>2.6%</span></li>
+                    <li><span>Ahmedabad</span> <span>1.9%</span></li>
+                    <li><span>The results are for 84.2% Indian demographic</span></li>
+                </ul>
+            </div>
+
+            <div class="demo-card" style="text-align:center;">
+                <h3>Gender Split</h3>
+                <div class="gender-circle"></div>
+                <div class="gender-legend">
+                    <span style="color:var(--primary); font-weight:bold;">● Female (74.5%)</span> &nbsp; 
+                    <span style="color:#999; font-weight:bold;">● Male (25.5%)</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="contact reveal">
+        <div class="section-header">
+            <h2>Let's Create Magic</h2>
+            <p>Inquiries regarding collaborations, gifting, and events.</p>
+        </div>
+        
+        <div class="contact-container">
+            
+            <div class="direct-email">
+                <p>Prefer to email directly?</p>
+                <a href="mailto:sunalitalwar80@gmail.com" class="email-link">
+                    sunalitalwar80@gmail.com
+                </a>
+            </div>
+
+            <form action="https://formspree.io/f/YOUR_ID_HERE" method="POST">
+                <div class="form-group">
+                    <label>Name</label> 
+                    <input type="text" class="form-control" name="name" required placeholder="Your Name or Brand">
+                </div>
+                <div class="form-group">
+                    <label>Brand Email</label> 
+                    <input type="email" class="form-control" name="email" required placeholder="name@company.com">
+                </div>
+                <div class="form-group">
+                    <label>Service Interest</label>
+                    <select class="form-control" name="service">
+                        <option>Instagram Reel Package</option>
+                        <option>Static Post & Review</option>
+                        <option>Long-term Brand Deal</option>
+                        <option>Event Appearance / Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Message</label> 
+                    <input type="text" class="form-control" name="message" placeholder="Tell me about your campaign...">
+                </div>
+                <button type="submit" class="submit-btn">Send Proposal</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo" style="color:white; margin-bottom:20px;">SUNALI TALWAR</div>
+        <p style="font-size:0.8rem; color:#666;">&copy; 2025 Sunali Talwar. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Scroll Animation
+        window.addEventListener('scroll', reveal);
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowheight = window.innerHeight;
+                var revealtop = reveals[i].getBoundingClientRect().top;
+                if (revealtop < windowheight - 150) { reveals[i].classList.add('active'); }
+            }
+        }
+        reveal(); // Trigger once
+
+        // Video Sound Toggle
+        function toggleSound(event, id, btn) {
+            event.stopPropagation();
+            var video = document.getElementById(id);
+            var icon = btn.querySelector('i');
+            if (video.muted) {
+                video.muted = false;
+                icon.classList.remove('fa-volume-mute');
+                icon.classList.add('fa-volume-high');
+            } else {
+                video.muted = true;
+                icon.classList.remove('fa-volume-high');
+                icon.classList.add('fa-volume-mute');
+            }
+        }
+    </script>
+</body>
+</html>
