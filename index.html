@@ -89,7 +89,7 @@
         .hero {
             min-height: 100vh;
             display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/profile.jpeg') center/cover no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/profile.webp') center/cover no-repeat;
             color: var(--white);
             padding: 100px 20px 40px;
         }
@@ -672,7 +672,7 @@
     </footer>
 
     <script>
-        // 1. Mobile Menu Toggle Logic
+        // 1. Mobile Menu Toggle
         function toggleMenu() {
             const navLinks = document.getElementById('nav-links');
             navLinks.classList.toggle('active');
@@ -688,30 +688,48 @@
                 if (revealtop < windowheight - 100) { reveals[i].classList.add('active'); }
             }
         }
-        reveal(); // Trigger once on load
+        reveal(); 
 
-        // 3. Video Sound Toggle (Works on Phone)
+        // 3. Mutually Exclusive Sound Toggle
         function toggleSound(event, id, btn) {
-            // Stop the click from opening the Instagram link
             event.stopPropagation();
             event.preventDefault();
             
-            var video = document.getElementById(id);
-            var icon = btn.querySelector('i');
-            if (video.muted) {
-                video.muted = false;
-                icon.classList.remove('fa-volume-mute');
-                icon.classList.add('fa-volume-high');
+            var currentVideo = document.getElementById(id);
+            var currentIcon = btn.querySelector('i');
+
+            // Check if we are about to UNMUTE the video
+            if (currentVideo.muted) {
+                
+                // STEP A: Mute ALL other videos first
+                var allVideos = document.querySelectorAll('video');
+                var allIcons = document.querySelectorAll('.sound-btn i');
+
+                allVideos.forEach(function(vid) {
+                    vid.muted = true;
+                });
+
+                // STEP B: Reset ALL icons to the "muted" look
+                allIcons.forEach(function(icon) {
+                    icon.classList.remove('fa-volume-high');
+                    icon.classList.add('fa-volume-mute');
+                });
+
+                // STEP C: Unmute ONLY the current video
+                currentVideo.muted = false;
+                currentIcon.classList.remove('fa-volume-mute');
+                currentIcon.classList.add('fa-volume-high');
+
             } else {
-                video.muted = true;
-                icon.classList.remove('fa-volume-high');
-                icon.classList.add('fa-volume-mute');
+                // If we are just muting the current video, simple switch
+                currentVideo.muted = true;
+                currentIcon.classList.remove('fa-volume-high');
+                currentIcon.classList.add('fa-volume-mute');
             }
         }
 
-        // 4. Handle Video Container Click (Separated to avoid conflict)
+        // 4. Handle Video Click
         function handleVideoClick(url) {
-            // Only open if the user didn't click the mute button
             window.open(url, '_blank');
         }
     </script>
