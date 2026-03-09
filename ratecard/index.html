@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sunali Talwar – Rate Card</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f5f2ee;
+      --warm-white: #faf9f7;
+      --stone: #c8bfb0;
+      --taupe: #9e8f80;
+      --charcoal: #2a2420;
+      --ink: #1a1614;
+      --accent: #6b5c4e;
+    }
+
+    body {
+      background: var(--cream);
+      font-family: 'Jost', sans-serif;
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px 60px;
+    }
+
+    /* Subtle noise texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    .card {
+      position: relative;
+      z-index: 1;
+      background: var(--warm-white);
+      max-width: 680px;
+      width: 100%;
+      border: 1px solid var(--stone);
+      padding: 52px 52px 60px;
+      box-shadow: 0 4px 60px rgba(42,36,32,0.10), 0 1px 4px rgba(42,36,32,0.06);
+      animation: fadeUp 0.8s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Header ── */
+    .header { text-align: center; margin-bottom: 40px; }
+
+    .name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(48px, 10vw, 76px);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      line-height: 1;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      font-weight: 500;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 28px 0;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--stone);
+    }
+    .divider-dot {
+      width: 5px; height: 5px;
+      background: var(--stone);
+      border-radius: 50%;
+    }
+
+    /* ── Profile + Contact ── */
+    .intro {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 32px;
+      align-items: start;
+      margin-bottom: 36px;
+    }
+
+    .photo-wrap {
+      position: relative;
+    }
+    .photo-circle {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--stone);
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .photo-circle svg {
+      width: 80px;
+      height: 80px;
+      opacity: 0.25;
+    }
+    .photo-placeholder-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--taupe);
+      text-align: center;
+      margin-top: 8px;
+      text-transform: uppercase;
+    }
+
+    .contact h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .niche {
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    .contact-list {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+    .contact-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+      font-weight: 300;
+    }
+    .contact-list li svg {
+      flex-shrink: 0;
+      color: var(--taupe);
+    }
+
+    .socials {
+      display: flex;
+      gap: 18px;
+    }
+    .social-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .social-icon {
+      width: 34px; height: 34px;
+      border: 1px solid var(--stone);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--charcoal);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .social-icon:hover { background: var(--cream); border-color: var(--accent); }
+    .social-handle {
+      font-size: 10px;
+      color: var(--taupe);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Section Heading ── */
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      margin-bottom: 18px;
+    }
+
+    /* ── Services Row ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--stone);
+      margin-bottom: 36px;
+    }
+    .service-item {
+      padding: 16px 10px;
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--charcoal);
+      line-height: 1.5;
+      border-right: 1px solid var(--stone);
+    }
+    .service-item:last-child { border-right: none; }
+
+    /* ── Pricing Grid ── */
+    .pricing-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    .pricing-block h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--ink);
+    }
+
+    .price-table { width: 100%; border-collapse: collapse; }
+    .price-table tr {
+      border-bottom: 1px solid #ede9e4;
+    }
+    .price-table tr:last-child { border-bottom: none; }
+    .price-table td {
+      padding: 9px 0;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--charcoal);
+    }
+    .price-table td:last-child {
+      text-align: right;
+      font-weight: 500;
+      color: var(--accent);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+    }
+
+    /* ── Tester Package ── */
+    .tester-block {
+      background: var(--cream);
+      border: 1px solid var(--stone);
+      padding: 24px 28px;
+      margin-top: 4px;
+    }
+    .tester-block h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+    .tester-headline {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 12px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+    }
+    .tester-list {
+      list-style: none;
+      padding: 0;
+    }
+    .tester-list li {
+      font-size: 13.5px;
+      font-weight: 300;
+      color: var(--charcoal);
+      padding: 5px 0;
+      padding-left: 16px;
+      position: relative;
+    }
+    .tester-list li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--taupe);
+      font-size: 18px;
+      line-height: 1;
+      top: 4px;
+    }
+
+    /* ── Footer note ── */
+    .footer-note {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--stone);
+    }
+
+    @media (max-width: 540px) {
+      .card { padding: 32px 24px 40px; }
+      .intro { grid-template-columns: 1fr; }
+      .photo-circle { margin: 0 auto; }
+      .photo-placeholder-text { text-align: center; }
+      .pricing-row { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .service-item:nth-child(2) { border-right: none; }
+      .service-item:nth-child(1),
+      .service-item:nth-child(2) { border-bottom: 1px solid var(--stone); }
+    }
+  </style>
+</head>
+<body>
+<div class="card">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="name">Sunali Talwar</div>
+    <div class="tagline">UGC Content Creator &nbsp;·&nbsp; Rate Card 2025</div>
+  </div>
+
+  <div class="divider"><span class="divider-dot"></span></div>
+
+  <!-- Intro: photo + contact -->
+  <div class="intro">
+    <div class="photo-wrap">
+      <!-- Replace the SVG below with an <img> tag pointing to your photo -->
+      <div class="photo-circle">
+        <img src="ratecard/pic.jpeg" alt="Sarah May" style="width:100%; height:100%; object-fit:cover;" />
+      </div>
+      <div class="photo-placeholder-text"></div>
+    </div>
+
+    <div class="contact">
+      <h2>Sunali Talwar</h2>
+      <div class="niche">Lifestyle &nbsp;|&nbsp; Beauty &nbsp;|&nbsp; Fashion</div>
+
+      <ul class="contact-list">
+        <li>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          +91-8750003873
+        </li>
+        <li>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          sunalitalwar80@gmail.com
+        </li>
+      </ul>
+
+      <div class="socials">
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/sunalitalwar" target="_blank" class="social-item">
+    <div class="social-icon">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+    </div>
+    <span class="social-handle">@sunalitalwar</span>
+  </a>
+  <!-- YouTube -->
+  <a href="https://www.youtube.com/@sunalitalwar8435" target="_blank" class="social-item">
+    <div class="social-icon">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8zM9.75 15.5v-7l6.25 3.5-6.25 3.5z"/></svg>
+    </div>
+    <span class="social-handle">@sunalitalwar8435</span>
+  </a>
+  <!-- Threads -->
+  <a href="https://www.threads.net/@sunalitalwar" target="_blank" class="social-item">
+    <div class="social-icon">
+      <svg width="16" height="16" viewBox="0 0 192 192" fill="currentColor"><path d="M141.537 88.988a66.667 66.667 0 0 0-2.518-1.143c-1.482-27.307-16.403-42.94-41.457-43.1h-.34c-14.986 0-27.449 6.396-35.12 18.036l13.779 9.452c5.73-8.695 14.724-10.548 21.348-10.548h.229c8.249.053 14.474 2.452 18.503 7.129 2.932 3.405 4.893 8.111 5.864 14.05-7.314-1.243-15.224-1.626-23.68-1.14-23.82 1.371-39.134 15.264-38.105 34.568.522 9.792 5.4 18.216 13.735 23.719 7.047 4.652 16.124 6.927 25.557 6.412 12.458-.683 22.231-5.436 29.049-14.127 5.178-6.6 8.453-15.153 9.899-25.93 5.937 3.583 10.337 8.298 12.767 13.966 4.132 9.635 4.373 25.468-8.546 38.376-11.319 11.308-24.925 16.2-45.488 16.351-22.809-.169-40.06-7.484-51.275-21.741C35.236 139.966 29.808 120.682 29.605 96c.203-24.682 5.63-43.966 16.133-57.317C56.954 24.425 74.204 17.11 97.013 16.94c22.975.17 40.526 7.52 52.171 21.847 5.71 7.026 10.015 15.86 12.853 26.162l16.147-4.308c-3.44-12.68-8.853-23.606-16.219-32.668C147.036 9.607 125.202.195 97.07 0h-.113C68.882.195 47.292 9.643 32.788 28.08 19.882 44.485 13.224 67.315 13.001 95.932L13 96v.067c.224 28.617 6.882 51.447 19.788 67.851C47.292 182.358 68.882 191.806 96.957 192h.113c24.96-.173 42.554-6.708 57.048-21.189 18.963-18.944 18.392-42.692 12.142-57.27-4.484-10.454-13.033-18.944-24.723-24.553zm-41.58 39.82c-10.463.572-21.317-4.108-21.863-14.2-.403-7.559 5.363-15.986 22.74-17.01 1.989-.115 3.942-.17 5.862-.17 6.421 0 12.421.616 17.82 1.799-2.027 25.316-14.269 28.953-24.558 29.58z"/></svg>
+    </div>
+    <span class="social-handle">@sunalitalwar</span>
+  </a>
+  <!-- Facebook -->
+  <a href="https://www.facebook.com/sunali.talwar" target="_blank" class="social-item">
+    <div class="social-icon">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.269h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+    </div>
+    <span class="social-handle">@sunali.talwar</span>
+  </a>
+</div>
+    </div>
+  </div>
+
+  <div class="divider"><span class="divider-dot"></span></div>
+
+  <!-- Services -->
+  <div class="section-title">Services</div>
+  <div class="services-grid">
+    <div class="service-item">Concept &amp;<br>Scripting</div>
+    <div class="service-item">Unboxing &amp;<br>ASMR</div>
+    <div class="service-item">Testimonials &amp;<br>Reviews</div>
+    <div class="service-item">UGC Photos &amp;<br>Videos</div>
+  </div>
+
+  <!-- Pricing -->
+  <div class="pricing-row">
+    <!-- Organic Videos -->
+    <div class="pricing-block">
+      <h3>Organic Videos</h3>
+      <table class="price-table">
+        <tr><td>1 video</td><td>Starting at $xxx</td></tr>
+        <tr><td>3 videos</td><td>Starting at $xxx</td></tr>
+        <tr><td>5 videos</td><td>Starting at $xxx</td></tr>
+      </table>
+    </div>
+
+    <!-- Usage Rights -->
+    <div class="pricing-block">
+      <h3>Usage Rights</h3>
+      <table class="price-table">
+        <tr><td>3 months usage</td><td>$xxx</td></tr>
+        <tr><td>6 months usage</td><td>$xxx</td></tr>
+        <tr><td>1 year usage</td><td>$xxx</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="pricing-row">
+    <!-- Photos -->
+    <div class="pricing-block">
+      <h3>Photos</h3>
+      <table class="price-table">
+        <tr><td>3 photos</td><td>$xxx</td></tr>
+        <tr><td>5 photos</td><td>$xxx</td></tr>
+        <tr><td>8 photos</td><td>$xxx</td></tr>
+      </table>
+    </div>
+
+    <!-- Tester Package -->
+    <div class="pricing-block">
+      <div class="tester-block">
+        <h3>Tester Package</h3>
+        <div class="tester-headline"># of videos for $xxx</div>
+        <ul class="tester-list">
+          <li>Includes XX videos, X hooks, X CTAs</li>
+          <li>Usage rights for X months</li>
+          <li>Delivered within X business days</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><span class="divider-dot"></span></div>
+
+  <div class="footer-note">All prices are in INR &nbsp;·&nbsp; Rates subject to change &nbsp;·&nbsp; hello@reallygreatsite.com</div>
+
+</div>
+</body>
+</html>
