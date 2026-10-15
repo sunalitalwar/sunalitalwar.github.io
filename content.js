@@ -10,7 +10,7 @@ window.SITE_CONTENT = {
 
   // Contact form. Paste your Formspree (or Basin / Web3Forms) endpoint to receive inquiries by email,
   // e.g. 'https://formspree.io/f/xxxxxxx'. Left empty, the form opens the visitor's email app instead.
-  contact: { email: 'sunalitalwar80@gmail.com', formEndpoint: '' },
+  contact: { email: 'sunalitalwar80@gmail.com', formEndpoint: 'https://formspree.io/f/xzdpppeg' },
 
   // Photos by slot. Drop a file in assets/photos/ and set its path here.
   // 'store-home' is a TEMPORARY stand-in on the home page: replace with a real store / café photo (portrait 4:5, 1600px+).
