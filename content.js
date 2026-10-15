@@ -33,9 +33,17 @@ window.SITE_CONTENT = {
     { id: 'rexona', brand: 'Rexona', cat: 'Beauty', src: 'assets/reels/rexona.mp4', ig: 'https://www.instagram.com/reel/DQ9dGlTibxB/', format: 'Instagram Reel · product review' },
     { id: 'suratikart', brand: 'Surati Kart', cat: 'Fashion', src: 'assets/reels/suratikart.mp4', ig: 'https://www.instagram.com/reel/DOvZV2eCXjL/', format: 'Instagram Reel · ethnic wear', featured: true },
     { id: 'seranatural', brand: 'Sera Natural', cat: 'Lifestyle', src: 'assets/reels/seranatural.mp4', ig: 'https://www.instagram.com/reel/DUkYHHsEfBV/', format: 'Instagram Reel · UGC', featured: true },
-    { id: 'isntree', brand: 'Isntree', cat: 'Beauty', src: 'assets/reels/macaron.mp4', ig: 'https://www.instagram.com/reel/DRmrhycie-g/', format: 'Instagram Reel', featured: true },
+    { id: 'isntree', brand: 'Isntree', cat: 'Beauty', src: 'assets/reels/isntree.mp4', ig: 'https://www.instagram.com/reel/DRmrhycie-g/', format: 'Instagram Reel', featured: true },
     { id: 'goodscity', brand: 'Goods City', cat: 'Lifestyle', src: 'assets/reels/goodscity.mp4', ig: 'https://www.instagram.com/reel/DVGtxbSCYsL/', format: 'Instagram Reel · UGC' },
-    { id: 'suratikart2', brand: 'Surati Kart', cat: 'Fashion', src: 'assets/reels/suratikart2.mp4', ig: 'https://www.instagram.com/reel/DQzMi8tiR5G/', format: 'Instagram Reel · try-on' }
+    { id: 'suratikart2', brand: 'Surati Kart', cat: 'Fashion', src: 'assets/reels/suratikart2.mp4', ig: 'https://www.instagram.com/reel/DQzMi8tiR5G/', format: 'Instagram Reel · try-on' },
+    { id: 'amazon', brand: 'Amazon', cat: 'Lifestyle', src: 'assets/reels/amazon.mp4', ig: '', format: 'Instagram Reel' },
+    { id: 'flipkart', brand: 'Flipkart', cat: 'Lifestyle', src: 'assets/reels/flipkart.mp4', ig: '', format: 'Instagram Reel' },
+    { id: 'sugar', brand: 'SUGAR', cat: 'Beauty', src: 'assets/reels/sugar.mp4', ig: '', format: 'Instagram Reel' },
+    { id: 'facescanada', brand: 'Faces Canada', cat: 'Beauty', src: 'assets/reels/facescanada.mp4', ig: '', format: 'Instagram Reel' },
+    { id: 'swissbeauty', brand: 'Swiss Beauty', cat: 'Beauty', src: 'assets/reels/swissbeauty.mp4', ig: '', format: 'Instagram Reel' },
+    { id: 'bblunt', brand: 'BBlunt', cat: 'Beauty', src: 'assets/reels/bblunt.mp4', ig: '', format: 'Instagram Reel' },
+    { id: 'pyunkangyul', brand: 'Pyunkang Yul', cat: 'Beauty', src: 'assets/reels/Pyunkang%20yul.mp4', ig: '', format: 'Instagram Reel' },
+    { id: 'louenhide', brand: 'Louenhide', cat: 'Fashion', src: 'assets/reels/louenhide.mp4', ig: '', format: 'Instagram Reel' }
   ],
 
   // Brands: leave logo empty to show the typeset wordmark.
@@ -69,15 +77,15 @@ window.SITE_CONTENT = {
   // Case studies (ordered by popularity). Set reel: '<reel id>' to show a video; otherwise a drop-in image slot is shown.
   // format: optional, e.g. 'Instagram Reel · unboxing'. results: optional, e.g. '1.2M views · 14K saves' (hidden when empty).
   caseStudies: [
-    { brand: 'Amazon', cat: 'Marketplace', reel: '', format: '', results: '' },
-    { brand: 'Flipkart', cat: 'Marketplace', reel: '', format: '', results: '' },
+    { brand: 'Amazon', cat: 'Marketplace', reel: 'amazon', format: '', results: '' },
+    { brand: 'Flipkart', cat: 'Marketplace', reel: 'flipkart', format: '', results: '' },
     { brand: 'Myntra', cat: 'Fashion', reel: '', format: '', results: '' },
-    { brand: 'SUGAR', cat: 'Beauty', reel: '', format: '', results: '' },
-    { brand: 'Faces Canada', cat: 'Beauty', reel: '', format: '', results: '' },
-    { brand: 'Swiss Beauty', cat: 'Beauty', reel: '', format: '', results: '' },
-    { brand: 'BBlunt', cat: 'Haircare', reel: '', format: '', results: '' },
-    { brand: 'Pyunkang Yul', cat: 'Skincare', reel: '', format: '', results: '' },
-    { brand: 'Louenhide', cat: 'Fashion accessories', reel: '', format: '', results: '' },
+    { brand: 'SUGAR', cat: 'Beauty', reel: 'sugar', format: '', results: '' },
+    { brand: 'Faces Canada', cat: 'Beauty', reel: 'facescanada', format: '', results: '' },
+    { brand: 'Swiss Beauty', cat: 'Beauty', reel: 'swissbeauty', format: '', results: '' },
+    { brand: 'BBlunt', cat: 'Haircare', reel: 'bblunt', format: '', results: '' },
+    { brand: 'Pyunkang Yul', cat: 'Skincare', reel: 'pyunkangyul', format: '', results: '' },
+    { brand: 'Louenhide', cat: 'Fashion accessories', reel: 'louenhide', format: '', results: '' },
     { brand: 'Surati Kart', cat: 'Fashion', reel: 'suratikart', format: '', results: '' },
     { brand: 'Sera Natural', cat: 'Lifestyle', reel: 'seranatural', format: '', results: '' },
     { brand: 'Isntree', cat: 'Skincare', reel: 'isntree', format: '', results: '' }
