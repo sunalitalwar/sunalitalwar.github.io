@@ -160,7 +160,7 @@ input,select,textarea,button{font:inherit;color:inherit}
           <figure data-reveal="" style="margin:0;display:flex;flex-direction:column;gap:14px">
             <div style="position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:#2a2420">
               <video data-key="{{ r.key }}" data-src="{{ r.src }}" data-poster="{{ r.poster }}" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="metadata" aria-label="{{ r.brand }} reel by Sunali Talwar" style="width:100%;height:100%;object-fit:cover;display:block"></video>
-              <a href="{{ r.ig }}" target="_blank" rel="noopener" aria-label="Open the {{ r.brand }} reel on Instagram" style="position:absolute;top:12px;right:12px;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#faf9f7;background:rgba(26,22,20,0.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:9px 12px;border-radius:999px" style-hover="background:rgba(26,22,20,0.8);color:#faf9f7">Instagram ↗</a>
+              <sc-if value="{{ r.hasIg }}" hint-placeholder-val="{{ false }}"><a href="{{ r.ig }}" target="_blank" rel="noopener" aria-label="Open the {{ r.brand }} reel on Instagram" style="position:absolute;top:12px;right:12px;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#faf9f7;background:rgba(26,22,20,0.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:9px 12px;border-radius:999px" style-hover="background:rgba(26,22,20,0.8);color:#faf9f7">Instagram ↗</a></sc-if>
               <button onClick="{{ r.toggle }}" aria-label="{{ r.aria }}" aria-pressed="{{ r.on }}" style="position:absolute;left:12px;bottom:12px;cursor:pointer;display:flex;align-items:center;gap:8px;min-height:40px;border:none;border-radius:999px;background:rgba(26,22,20,0.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#faf9f7;padding:0 16px;font-size:10px;letter-spacing:0.16em;text-transform:uppercase">
                 <span style="width:7px;height:7px;border-radius:50%;background:{{ r.dot }};transition:background .3s"></span>{{ r.text }}
               </button>
@@ -224,7 +224,7 @@ input,select,textarea,button{font:inherit;color:inherit}
         <sc-if value="{{ r.hasReel }}" hint-placeholder-val="{{ false }}">
         <div style="position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:#e3dcd2">
           <video data-key="{{ r.key }}" data-src="{{ r.src }}" data-poster="{{ r.poster }}" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="metadata" aria-label="{{ r.brand }} reel by Sunali Talwar" style="width:100%;height:100%;object-fit:cover;display:block"></video>
-          <a href="{{ r.ig }}" target="_blank" rel="noopener" aria-label="Open the {{ r.brand }} reel on Instagram" style="position:absolute;top:12px;right:12px;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#faf9f7;background:rgba(26,22,20,0.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:9px 12px;border-radius:999px" style-hover="background:rgba(26,22,20,0.8);color:#faf9f7">Instagram ↗</a>
+          <sc-if value="{{ r.hasIg }}" hint-placeholder-val="{{ false }}"><a href="{{ r.ig }}" target="_blank" rel="noopener" aria-label="Open the {{ r.brand }} reel on Instagram" style="position:absolute;top:12px;right:12px;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#faf9f7;background:rgba(26,22,20,0.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:9px 12px;border-radius:999px" style-hover="background:rgba(26,22,20,0.8);color:#faf9f7">Instagram ↗</a></sc-if>
           <button onClick="{{ r.toggle }}" aria-label="{{ r.aria }}" aria-pressed="{{ r.on }}" style="position:absolute;left:12px;bottom:12px;cursor:pointer;display:flex;align-items:center;gap:8px;min-height:40px;border:none;border-radius:999px;background:rgba(26,22,20,0.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#faf9f7;padding:0 16px;font-size:10px;letter-spacing:0.16em;text-transform:uppercase">
             <span style="width:7px;height:7px;border-radius:50%;background:{{ r.dot }};transition:background .3s"></span>{{ r.text }}
           </button>
@@ -272,7 +272,7 @@ input,select,textarea,button{font:inherit;color:inherit}
           <dt style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#6b5c4e;padding-top:3px">Format</dt><dd style="margin:0;font-weight:300">{{ r.format }}</dd>
           <dt style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#6b5c4e;padding-top:3px">Scope</dt><dd style="margin:0;font-weight:300">Concept, script, shoot, edit</dd>
           <sc-if value="{{ r.hasResults }}" hint-placeholder-val="{{ false }}"><dt style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#6b5c4e;padding-top:3px">Results</dt><dd style="margin:0;font-weight:300">{{ r.results }}</dd></sc-if>
-          <sc-if value="{{ r.hasReel }}" hint-placeholder-val="{{ false }}"><dt></dt><dd style="margin:8px 0 0"><a href="{{ r.ig }}" target="_blank" rel="noopener" style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:4px">Watch on Instagram ↗</a></dd></sc-if>
+          <sc-if value="{{ r.hasIg }}" hint-placeholder-val="{{ false }}"><dt></dt><dd style="margin:8px 0 0"><a href="{{ r.ig }}" target="_blank" rel="noopener" style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:4px">Watch on Instagram ↗</a></dd></sc-if>
         </dl>
         <sc-if value="{{ r.hasReel }}" hint-placeholder-val="{{ false }}">
         <div style="position:relative;max-width:240px;width:100%;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:#e3dcd2;justify-self:end">
@@ -307,11 +307,24 @@ input,select,textarea,button{font:inherit;color:inherit}
     <h1 data-reveal="" style="margin:14px 0 24px;max-width:14ch;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(56px,7.6vw,112px);line-height:0.92">From follows <em style="font-weight:400;color:#1f4a3d">to footfall</em></h1>
     <p data-reveal="" style="margin:0;max-width:56ch;font-size:17px;line-height:1.75;font-weight:300;color:#2a2420;text-wrap:pretty">When a brand needs people at the door, not just on the feed, I visit in person. Store launches, salon openings, pop-ups, counters and cafés across Delhi NCR, shot and delivered like any other campaign.</p>
   </section>
-  <section aria-label="Store and café visit gallery" style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:grid;grid-template-columns:{{ cols4 }};gap:20px">
-    <div data-reveal="" style="position:relative;aspect-ratio:4/5;border-radius:6px;overflow:hidden"><image-slot id="store-1" shape="rect" placeholder="Store walkthrough photo"></image-slot></div>
-    <div data-reveal="" style="position:relative;aspect-ratio:4/5;border-radius:6px;overflow:hidden"><image-slot id="store-2" shape="rect" placeholder="In-store try-on / swatch photo"></image-slot></div>
-    <div data-reveal="" style="position:relative;aspect-ratio:4/5;border-radius:6px;overflow:hidden"><image-slot id="store-3" shape="rect" placeholder="Counter or shelf shot"></image-slot></div>
-    <div data-reveal="" style="position:relative;aspect-ratio:4/5;border-radius:6px;overflow:hidden"><image-slot id="store-4" shape="rect" placeholder="Café visit photo"></image-slot></div>
+  <section aria-label="Store and café visit reels" style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,56px)">
+    <div style="display:grid;grid-template-columns:{{ storeCols }};gap:36px 22px">
+      <sc-for list="{{ storeReels }}" as="r" hint-placeholder-count="5">
+        <figure data-reveal="" style="margin:0;display:flex;flex-direction:column;gap:14px">
+          <div style="position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:#e3dcd2">
+            <video data-key="{{ r.key }}" data-src="{{ r.src }}" data-poster="{{ r.poster }}" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="metadata" aria-label="{{ r.brand }} visit reel by Sunali Talwar" style="width:100%;height:100%;object-fit:cover;display:block"></video>
+            <sc-if value="{{ r.hasIg }}" hint-placeholder-val="{{ false }}"><a href="{{ r.ig }}" target="_blank" rel="noopener" aria-label="Open the {{ r.brand }} reel on Instagram" style="position:absolute;top:12px;right:12px;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#faf9f7;background:rgba(26,22,20,0.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:9px 12px;border-radius:999px" style-hover="background:rgba(26,22,20,0.8);color:#faf9f7">Instagram ↗</a></sc-if>
+            <button onClick="{{ r.toggle }}" aria-label="{{ r.aria }}" aria-pressed="{{ r.on }}" style="position:absolute;left:12px;bottom:12px;cursor:pointer;display:flex;align-items:center;gap:8px;min-height:40px;border:none;border-radius:999px;background:rgba(26,22,20,0.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#faf9f7;padding:0 16px;font-size:10px;letter-spacing:0.16em;text-transform:uppercase">
+              <span style="width:7px;height:7px;border-radius:50%;background:{{ r.dot }};transition:background .3s"></span>{{ r.text }}
+            </button>
+          </div>
+          <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px">
+            <span style="font-family:'Cormorant Garamond',serif;font-size:26px;line-height:1.1">{{ r.brand }}</span>
+            <span style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#6b5c4e;text-align:right">{{ r.cat }}</span>
+          </figcaption>
+        </figure>
+      </sc-for>
+    </div>
   </section>
   <section style="max-width:1320px;margin:0 auto;padding:clamp(72px,9vw,120px) clamp(20px,4vw,56px) 0">
     <h2 data-reveal="" style="margin:0 0 32px;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,4vw,52px);line-height:1">What you get</h2>
@@ -601,6 +614,7 @@ class Component extends DCLogic {
       if (e.isIntersecting && (this.props.autoplayReels ?? true)) { v.muted = v.dataset.key !== this.state.sound; v.play().catch(() => {}); }
       else v.pause();
     }), { threshold: 0.3 });
+    this.lio = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; this.lio.unobserve(e.target); this.loadVideo(e.target); }), { rootMargin: '300px 0px' });
     this.rio = new IntersectionObserver(es => es.forEach(e => {
       if (!e.isIntersecting) return;
       this.rio.unobserve(e.target); this.revealEl(e.target);
@@ -613,7 +627,7 @@ class Component extends DCLogic {
     this.wire(); this.applyMeta(); this.startMarquee();
   }
   componentWillUnmount() {
-    clearInterval(this.poll); this.vio?.disconnect(); this.rio?.disconnect();
+    clearInterval(this.poll); this.vio?.disconnect(); this.lio?.disconnect(); this.rio?.disconnect();
     this.mq?.removeEventListener('change', this.onMq); this.mq2?.removeEventListener('change', this.onMq2); removeEventListener('keydown', this.onKey); removeEventListener('popstate', this.onPop);
   }
   componentDidUpdate() {
@@ -654,6 +668,11 @@ class Component extends DCLogic {
     el.animate([{ opacity: 0, transform: 'translateY(18px)' }, { opacity: 1, transform: 'none' }], { duration: 550, delay, easing: EASE, fill: 'backwards' });
     el.style.opacity = '';
   }
+  loadVideo(v) {
+    const u = v.dataset.src; if (!u || v.getAttribute('src') === u) return;
+    v.setAttribute('src', u); v.muted = v.dataset.key !== this.state.sound;
+    if (this.props.autoplayReels ?? true) v.play().catch(() => {});
+  }
   wire() {
     requestAnimationFrame(() => {
       document.querySelectorAll('video[data-key]').forEach(v => {
@@ -661,7 +680,13 @@ class Component extends DCLogic {
         if (!v.dataset.obs) { v.dataset.obs = '1'; this.vio.observe(v); v.addEventListener('loadeddata', () => { const r = v.getBoundingClientRect(); if ((this.props.autoplayReels ?? true) && r.top < innerHeight && r.bottom > 0) v.play().catch(() => {}); }); }
         if (!(this.props.autoplayReels ?? true) && v.dataset.key !== this.state.sound) v.pause();
       });
-      document.querySelectorAll('video[data-src]').forEach(v => { const u = v.dataset.src; if (u && u.indexOf('{{') < 0 && v.getAttribute('src') !== u) { const p = v.dataset.poster; if (p && p.indexOf('{{') < 0) v.setAttribute('poster', p); v.setAttribute('src', u); v.muted = v.dataset.key !== this.state.sound; v.play().catch(() => {}); } });
+      document.querySelectorAll('video[data-src]').forEach(v => {
+        const u = v.dataset.src; if (!u || u.indexOf('{{') >= 0) return;
+        const p = v.dataset.poster; if (p && p.indexOf('{{') < 0 && v.getAttribute('poster') !== p) v.setAttribute('poster', p);
+        if (v.getAttribute('src') === u) return;
+        if (v.getAttribute('src') || (v.dataset.key || '').indexOf('hero') === 0) this.loadVideo(v);
+        else if (!v.dataset.lz) { v.dataset.lz = '1'; this.lio.observe(v); }
+      });
       const C = window.SITE_CONTENT; if (C) document.querySelectorAll('image-slot[id]').forEach(el => { const u = (C.photos || {})[el.id]; if (u && el.getAttribute('src') !== u) el.setAttribute('src', u); });
       if (C) document.querySelectorAll('img[data-content]').forEach(i => { const u = i.dataset.content === 'hero' ? (C.hero || {}).image : C.portrait; if (u && i.getAttribute('src') !== u) i.setAttribute('src', u); });
       document.querySelectorAll('[data-reveal]:not([data-rv])').forEach(el => {
@@ -690,7 +715,7 @@ class Component extends DCLogic {
   };
   reel(r, prefix) {
     const key = prefix + '-' + r.id, on = this.state.sound === key;
-    return { ...r, key, on, poster: r.poster || '', toggle: this.toggleSound(key), text: on ? 'Sound on' : 'Sound off',
+    return { ...r, key, on, poster: r.poster || (r.src || '').replace(/\.mp4$/i, '.webp'), hasIg: !!r.ig, toggle: this.toggleSound(key), text: on ? 'Sound on' : 'Sound off',
       aria: (on ? 'Mute ' : 'Unmute ') + r.brand + ' reel', dot: on ? '#7fd1a8' : 'rgba(250,249,247,0.45)' };
   }
   studies(C, reels, prefix) {
@@ -731,6 +756,8 @@ class Component extends DCLogic {
       brandLine: brands.map(b => b.name).join(' · '),
       categories: (C.categories || []).map(c => ({ ...c, count: count(c.name), go: this.goFilter(c.name) })),
       reelCount: reels.length,
+      storeReels: (C.storeReels || []).map(r => this.reel(r, 's')),
+      storeCols: small ? 'repeat(2,minmax(0,1fr))' : narrow ? 'repeat(3,minmax(0,1fr))' : 'repeat(5,minmax(0,1fr))',
       featured: reels.filter(r => r.featured).slice(0, 3).map(r => this.reel(r, 'f')),
       caseStudies: this.studies(C, reels, 'c'),
       filters: ['All', 'Beauty', 'Fashion', 'Lifestyle'].map(label => ({

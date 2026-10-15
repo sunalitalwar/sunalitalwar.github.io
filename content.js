@@ -13,14 +13,10 @@ window.SITE_CONTENT = {
   contact: { email: 'sunalitalwar80@gmail.com', formEndpoint: '' },
 
   // Photos by slot. Drop a file in assets/photos/ and set its path here.
-  // The five store-* entries are TEMPORARY stand-ins: replace with real store / café photos (portrait 4:5, 1600px+).
+  // 'store-home' is a TEMPORARY stand-in on the home page: replace with a real store / café photo (portrait 4:5, 1600px+).
   // case-<brand> entries (e.g. 'case-amazon') show a photo in that brand's case study; empty shows a typeset brand card.
   photos: {
     'store-home': 'assets/lifestyle_cover.jpeg',
-    'store-1': 'assets/home.jpg',
-    'store-2': 'assets/beauty_cover.jpeg',
-    'store-3': 'assets/fashion_cover.jpeg',
-    'store-4': 'assets/lifestyle_cover.jpeg',
     'case-amazon': '', 'case-flipkart': '', 'case-myntra': '', 'case-sugar': '', 'case-faces-canada': '', 'case-swiss-beauty': '',
     'case-bblunt': '', 'case-pyunkang-yul': '', 'case-louenhide': ''
   },
@@ -42,7 +38,7 @@ window.SITE_CONTENT = {
     { id: 'facescanada', brand: 'Faces Canada', cat: 'Beauty', src: 'assets/reels/facescanada.mp4', ig: '', format: 'Instagram Reel' },
     { id: 'swissbeauty', brand: 'Swiss Beauty', cat: 'Beauty', src: 'assets/reels/swissbeauty.mp4', ig: '', format: 'Instagram Reel' },
     { id: 'bblunt', brand: 'BBlunt', cat: 'Beauty', src: 'assets/reels/bblunt.mp4', ig: '', format: 'Instagram Reel' },
-    { id: 'pyunkangyul', brand: 'Pyunkang Yul', cat: 'Beauty', src: 'assets/reels/Pyunkang%20yul.mp4', ig: '', format: 'Instagram Reel' },
+    { id: 'pyunkangyul', brand: 'Pyunkang Yul', cat: 'Beauty', src: 'assets/reels/pyunkang-yul.mp4', ig: '', format: 'Instagram Reel' },
     { id: 'louenhide', brand: 'Louenhide', cat: 'Fashion', src: 'assets/reels/louenhide.mp4', ig: '', format: 'Instagram Reel' }
   ],
 
@@ -72,6 +68,15 @@ window.SITE_CONTENT = {
     { name: 'Zeiss', logo: '' },
     { name: 'SHEIN', logo: 'assets/brands/shein.svg' },
     { name: 'Hilary Rhoda', logo: 'assets/brands/hilaryrhoda.svg' }
+  ],
+
+  // Store & café visit reels (Store visits page). Same fields as reels above; run `node tools/optimize-media.mjs` after adding mp4s.
+  storeReels: [
+    { id: 'california-burrito', brand: 'California Burrito', cat: 'Dining', src: 'assets/reels/stores-and-cafes/california_burrito.mp4', ig: '', format: 'Store & café visit' },
+    { id: 'drink-and-dine', brand: 'Drink & Dine', cat: 'Dining', src: 'assets/reels/stores-and-cafes/drink-and-dine.mp4', ig: '', format: 'Store & café visit' },
+    { id: 'kishan-lal-da-dhaba', brand: 'Kishan Lal Da Dhaba', cat: 'Dining', src: 'assets/reels/stores-and-cafes/kishan-lal-da-dhaba.mp4', ig: '', format: 'Store & café visit' },
+    { id: 'namaste-punjab', brand: 'Namaste Punjab', cat: 'Dining', src: 'assets/reels/stores-and-cafes/namaste-punjab.mp4', ig: '', format: 'Store & café visit' },
+    { id: 'punjabi-adda', brand: 'Punjabi Adda', cat: 'Dining', src: 'assets/reels/stores-and-cafes/punjabi-adda.mp4', ig: '', format: 'Store & café visit' }
   ],
 
   // Case studies (ordered by popularity). Set reel: '<reel id>' to show a video; otherwise a drop-in image slot is shown.
