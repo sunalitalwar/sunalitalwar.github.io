@@ -25,7 +25,6 @@ window.SITE_CONTENT = {
   reels: [
     { id: 'maybelline', brand: 'Maybelline', cat: 'Beauty', src: 'assets/reels/maybelline.mp4', ig: 'https://www.instagram.com/reel/DLkcXV_JvIv/', format: 'Instagram Reel · makeup demo' },
     { id: 'zeiss', brand: 'Zeiss', cat: 'Lifestyle', src: 'assets/reels/zeiss.mp4', ig: 'https://www.instagram.com/reel/DNPwZ-chmXQ/', format: 'Instagram Reel · eyewear' },
-    { id: 'zara', brand: 'Zara', cat: 'Fashion', src: 'assets/reels/zara.mp4', ig: 'https://www.instagram.com/reel/DVTgWisCQOJ/', format: 'Instagram Reel · styling' },
     { id: 'rexona', brand: 'Rexona', cat: 'Beauty', src: 'assets/reels/rexona.mp4', ig: 'https://www.instagram.com/reel/DQ9dGlTibxB/', format: 'Instagram Reel · product review' },
     { id: 'suratikart', brand: 'Surati Kart', cat: 'Fashion', src: 'assets/reels/suratikart.mp4', ig: 'https://www.instagram.com/reel/DOvZV2eCXjL/', format: 'Instagram Reel · ethnic wear', featured: true },
     { id: 'seranatural', brand: 'Sera Natural', cat: 'Lifestyle', src: 'assets/reels/seranatural.mp4', ig: 'https://www.instagram.com/reel/DUkYHHsEfBV/', format: 'Instagram Reel · UGC', featured: true },
@@ -39,7 +38,7 @@ window.SITE_CONTENT = {
     { id: 'swissbeauty', brand: 'Swiss Beauty', cat: 'Beauty', src: 'assets/reels/swissbeauty.mp4', ig: 'https://www.instagram.com/reel/DdMQlpDJM3l/', format: 'Instagram Reel' },
     { id: 'bblunt', brand: 'BBlunt', cat: 'Beauty', src: 'assets/reels/bblunt.mp4', ig: 'https://www.instagram.com/reel/Da0C1XQpCyp/', format: 'Instagram Reel' },
     { id: 'pyunkangyul', brand: 'Pyunkang Yul', cat: 'Beauty', src: 'assets/reels/pyunkang-yul.mp4', ig: 'https://www.instagram.com/reel/DcJACC5Jegr/', format: 'Instagram Reel' },
-    { id: 'louenhide', brand: 'Louenhide', cat: 'Fashion', src: 'assets/reels/louenhide.mp4', ig: '', format: 'Instagram Reel' },
+    { id: 'louenhide', brand: 'Louenhide', cat: 'Fashion', src: 'assets/reels/louenhide.mp4', ig: 'https://www.instagram.com/reel/DVTgWisCQOJ/', format: 'Instagram Reel' },
     { id: 'myntra', brand: 'Myntra', cat: 'Fashion', src: 'assets/reels/myntra.mp4', ig: 'https://www.instagram.com/reel/DctEyt0JBEe/', format: 'Instagram Reel' }
   ],
 
