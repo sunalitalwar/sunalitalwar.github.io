@@ -96,10 +96,11 @@ window.SITE_CONTENT = {
     { brand: 'Isntree', cat: 'Skincare', reel: 'isntree', format: '', results: '' }
   ],
 
+  // Replaced a photo but kept its file name? Bump the ?v= number after it so browsers fetch the new one.
   categories: [
-    { name: 'Beauty', img: 'assets/beauty.jpeg', line: 'Skin first, shade second, confidence always.' },
-    { name: 'Fashion', img: 'assets/fashion.jpg', line: 'Outfits with a point of view.' },
-    { name: 'Lifestyle', img: 'assets/lifestyle_cover.jpeg', line: 'Cafés, counters and everything in between.' }
+    { name: 'Beauty', img: 'assets/beauty.jpeg?v=2', line: 'Skin first, shade second, confidence always.' },
+    { name: 'Fashion', img: 'assets/fashion.jpg?v=1', line: 'Outfits with a point of view.' },
+    { name: 'Lifestyle', img: 'assets/lifestyle_cover.jpeg?v=1', line: 'Cafés, counters and everything in between.' }
   ],
 
   // Audience numbers (update monthly). Shown on Home and the Media Kit.
